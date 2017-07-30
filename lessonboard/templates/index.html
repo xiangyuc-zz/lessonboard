@@ -1,0 +1,15 @@
+<!doctype html>
+<head>
+  <title>Lessonboard</title>
+</head>
+
+<body>
+  <h1>Lessonboard</h1>
+  <div class="container">
+    {% for subject in subjects %}
+      <ul>
+        <li>{{ subject.name }}</li>
+      </ul>
+    {% endfor %}
+  </div>
+</body>
