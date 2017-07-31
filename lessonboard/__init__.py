@@ -9,4 +9,4 @@ bcrypt.init_app(app)
 migrate.init_app(app, db)
 
 
-import lessonboard.views
+import lessonboard.views  # nopep8
