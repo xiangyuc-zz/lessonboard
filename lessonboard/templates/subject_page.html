@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h1>{{ subject.name }}</h1>
+  <div class="container">
+    {% for board in boards %}
+      <ul>
+        <li>
+          <a href={{ url_for('board_page', board_id=board.id) }}>
+            {{ board.title }}
+          </a>
+        </li>
+      </ul>
+    {% endfor %}
+  </div>
+{% endblock %}

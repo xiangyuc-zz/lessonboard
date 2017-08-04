@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h1>{{ board.title }}</h1>
+  <div class="container">
+    {% for lesson in lessons %}
+      <ul>
+        <li>
+          {{ lesson.title }}
+          {{ lesson.comment }}
+      </ul>
+    {% endfor %}
+  </div>
+{% endblock %}
