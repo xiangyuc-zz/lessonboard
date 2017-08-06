@@ -2,10 +2,18 @@
 {% block body %}
   <h1>{{ board.title }}</h1>
   <div class="container">
-    {% for lesson in lessons %}
+    {% for chapter in chapters %}
       <ul>
         <li>
-          {{ lesson.title }}
+          {{ chapter.name }}
+          <ul>
+            {% for lesson in chapter.lessons.all() %}
+              <li>
+                <p>{{ lesson.title }}</p>
+                <p>{{ lesson.comment }}</p>
+              </li>
+            {% endfor %}
+          </ul>
           {{ lesson.comment }}
       </ul>
     {% endfor %}
