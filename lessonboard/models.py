@@ -1,9 +1,10 @@
 from datetime import datetime
 from lessonboard.extensions import db, bcrypt
 from sqlalchemy.ext.hybrid import hybrid_property
+from flask_login import UserMixin
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
@@ -26,6 +27,9 @@ class User(db.Model):
     @password.setter
     def _set_password(self, password):
         self._password = bcrypt.generate_password_hash(password)
+
+    def check_password(self, password):
+        return bcrypt.check_password_hash(self.password, password)
 
 
 class Subject(db.Model):

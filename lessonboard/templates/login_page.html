@@ -1,8 +1,14 @@
+{% from 'macros.html' import show_flash_messages %}
 {% extends 'layout.html' %}
+
+{% block messages %}
+  {{ show_flash_messages() }}
+{% endblock %}
+
 {% block body %}
   <h1>Login</h1>
   <div class="container">
-    <form method="POST" action="/">
+    <form method="POST" action="/login/">
       {{ form.csrf_token }}
       <div>{{ form.email.label}} {{ form.email(size=30) }}</div>
       <div>{{ form.password.label }} {{ form.password(size=30) }}</div>

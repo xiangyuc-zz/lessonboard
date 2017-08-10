@@ -1,9 +1,11 @@
-<!doctype html>
-<head>
-  <title>Lessonboard</title>
-</head>
+{% from 'macros.html' import show_flash_messages %}
+{% extends 'layout.html' %}
 
-<body>
+{% block messages %}
+  {{ show_flash_messages() }}
+{% endblock %}
+
+{% block body %}
   <h1>Lessonboard</h1>
   <div class="container">
     {% for subject in subjects %}
@@ -12,4 +14,9 @@
       </ul>
     {% endfor %}
   </div>
-</body>
+  <div>
+    {% if current_user.is_authenticated %}
+      {{ current_user.username }}
+    {% endif %}
+  </div>
+{% endblock %}
